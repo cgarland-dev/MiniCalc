@@ -1,8 +1,8 @@
-# MiniCalc
+# TaskView
 
 A purely functional **expression language and task-orchestration runtime**, written in Scala 3 on [Cats Effect](https://typelevel.org/cats-effect/).
 
-MiniCalc began as a small expression interpreter — a hand-written recursive
+TaskView began as a small expression interpreter — a hand-written recursive
 descent parser, an algebraic-data-type AST, and a pure, type-checked
 evaluator — and grew into a miniature orchestration system: you can define
 **tasks** with priorities, dependencies, timeouts, and retries, compose them
@@ -73,7 +73,7 @@ REPL.
 sbt run
 ```
 ```text
-Welcome to MiniCalc!
+Welcome to TaskView!
 Type :help for help, :quit to exit
 >
 ```
@@ -83,7 +83,7 @@ Type :help for help, :quit to exit
 sbt test
 
 # A single suite
-sbt "testOnly minicalc.EvaluatorSpec"
+sbt "testOnly TaskView.EvaluatorSpec"
 
 # Verbose output
 sbt "testOnly * -- -oD"
@@ -202,7 +202,7 @@ and retry policy — and returns an execution report.
 | `:demo` | Run an interactive demonstration of all features |
 | `:env` | List current variable bindings |
 | `:clear` | Clear all definitions (variables, tasks, workflows) |
-| `:quit`, `:q` | Exit MiniCalc |
+| `:quit`, `:q` | Exit TaskView |
 | `:tasks` | Show all defined tasks with their configuration |
 | `:clear-tasks` | Clear all task definitions |
 | `:workflows` | Show all defined workflows |
@@ -306,7 +306,7 @@ precedence level — so adding an operator is a localized change.
 
 ```text
 src/
-├── main/scala/minicalc/
+├── main/scala/TaskView/
 │   ├── Main.scala                 # IOApp entry point → REPL
 │   ├── ast/                       # Expr, Value, Operators
 │   ├── parser/                    # tokenizer + recursive descent parser
@@ -316,7 +316,7 @@ src/
 │   ├── execution/                 # ExecutionEngine, FiberExecutionEngine, …
 │   ├── monitoring/                # TaskMonitor, InMemoryMonitor
 │   └── repl/                      # REPL, HelpText, Demo
-└── test/scala/minicalc/           # ScalaTest suites (see below)
+└── test/scala/TaskView/           # ScalaTest suites (see below)
 ```
 
 ---
